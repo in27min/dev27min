@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-09-03T07:19:05Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: hello-world-python
+  name: hello-world-python
+  namespace: default
+  resourceVersion: "10049"
+  selfLink: /api/v1/namespaces/default/services/hello-world-python
+  uid: df8caf80-cd11-422e-acc4-d736b6e1e1db
+spec:
+  clusterIP: 10.0.2.240
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31720
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: hello-world-python
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.223.198.36
